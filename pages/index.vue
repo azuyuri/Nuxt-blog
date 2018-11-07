@@ -1,66 +1,45 @@
 <template>
   <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        nuxt-blog
-      </h1>
-      <h2 class="subtitle">
-        A Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
+    <nuxt-link
+      v-for="post in posts"
+      :key="post.id"
+      to="post.id">
+      <article class="post-preview">
+        <div
+          :style="{backgroundImage: post.thumbnailUrl}"
+          class="post-preview-thumbnail"/>
+        <div class="post-preview-content">
+          <h1>{{ post.title }}</h1>
+          <p>{{ post.previewText }}</p>
+        </div>
+      </article>
+    </nuxt-link>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      posts: [
+        {
+          title: 'A New Beginning',
+          previewText: 'This will be awesome, don\'t miss it! ',
+          thumbnailUrl: 'http://www.healthyfood.co.uk/wp-content/uploads/2015/01/Cherry-tomato-bocc-olive-basil-pasta.jpg',
+          id: 'a-new-beginning'
+        },
+         {
+          title: 'A Second Beginning',
+          previewText: 'This will be awesome, don\'t miss it! ',
+          thumbnailUrl: 'http://www.healthyfood.co.uk/wp-content/uploads/2015/01/Cherry-tomato-bocc-olive-basil-pasta.jpg',
+          id: 'a-second-beginning'
+        }
+      ]
+    }
   }
 }
 </script>
 
 <style>
 
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
