@@ -1,24 +1,21 @@
 <template>
-  <section class="container">
-    <nuxt-link
+  <section id="posts">
+    <PostPreview
       v-for="post in posts"
       :key="post.id"
-      to="post.id">
-      <article class="post-preview">
-        <div
-          :style="{backgroundImage: post.thumbnailUrl}"
-          class="post-preview-thumbnail"/>
-        <div class="post-preview-content">
-          <h1>{{ post.title }}</h1>
-          <p>{{ post.previewText }}</p>
-        </div>
-      </article>
-    </nuxt-link>
+      :title="post.title"
+      :excerpt="post.previewText"
+      :thumbnail-image="post.thumbnailUrl"
+      :id="post.id" />
   </section>
 </template>
 
 <script>
+import PostPreview from "@/components/Blog/PostPreview";
 export default {
+  components: {
+    PostPreview
+  },
   data() {
     return {
       posts: [
@@ -35,11 +32,23 @@ export default {
           id: 'a-second-beginning'
         }
       ]
-    }
+    };
+  }
+};
+</script>
+<style scoped>
+/* 画面サイズが小さい時縦に配置 */
+#posts {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/* 画面サイズが大きくなったらまた横に配置 */
+@media (min-width: 35rem) {
+  #posts {
+    flex-direction: row;
   }
 }
-</script>
-
-<style>
-
 </style>
