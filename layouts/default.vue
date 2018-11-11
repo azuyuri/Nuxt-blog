@@ -24,7 +24,4 @@ export default {
 body {
   font-family: "Lato", sans-serif;
 }
-.main-content {
-  margin-top: 4.5rem;
-}
 </style>

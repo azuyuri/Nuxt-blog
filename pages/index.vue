@@ -71,4 +71,29 @@ export default {
     flex-direction: row;
   }
 }
+/* ページ遷移のアニメーション */
+.main-content {
+  margin-top: 4.5rem;
+}
+.slide-left-enter {
+  transform: translateX(2000px);
+  opacity: 0;
+}
+.slide-left-enter-active {
+  transition: all .3s linear;
+}
+.slide-left-leave-to {
+  transform: translateX(-2000px);
+  opacity: 0;
+}
+.slide-left-leave-active {
+  transition: all .3s linear;
+}
+
+page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
 </style>
