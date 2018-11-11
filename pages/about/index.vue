@@ -4,3 +4,4 @@
     <p>We're a bunch of highly motivated and talented people, blogging about tech stuff.</p>
   </section>
 </template>
+
