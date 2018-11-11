@@ -1,7 +1,21 @@
 <template>
   <section id="about-page">
-    <h1>Hi, that's us!</h1>
-    <p>We're a bunch of highly motivated and talented people, blogging about tech stuff.</p>
+    <h1>{{ title }}</h1>
+    <p>{{ content }}</p>
   </section>
 </template>
 
+<script>
+export default {
+  asyncData(context) {
+    return context.app.$storyapi.get('cdn/stories/about', {
+      version: 'draft'
+    }).then(res => {
+      return {
+        title: res.data.content.title,
+        content: res.data.content.content
+      }
+    })
+  }
+}
+</script>
