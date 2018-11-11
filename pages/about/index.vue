@@ -11,9 +11,10 @@ export default {
     return context.app.$storyapi.get('cdn/stories/about', {
       version: 'draft'
     }).then(res => {
+      console.log(res.data)
       return {
-        title: res.data.content.title,
-        content: res.data.content.content
+        title: res.data.story.content.title,
+        content: res.data.story.content.content
       }
     })
   }
