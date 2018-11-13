@@ -44,7 +44,7 @@
   width: 100%;
   height: 300px;
   background-size: cover;
-  background-position: center;
+  background-position: 50% 30%;
 }
 .post-content {
   width: 80%;

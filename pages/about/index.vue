@@ -58,4 +58,11 @@ export default {
 .slide-left-leave-active {
   transition: all .3s linear;
 }
+
+page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
 </style>
