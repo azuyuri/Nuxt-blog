@@ -1,5 +1,7 @@
 <template>
-  <div id="post">
+  <div
+    v-editable="blok"
+    id="post">
     <div
       :style="{backgroundImage: 'url(' + image + ')'}"
       class="post-thumbnail"/>
@@ -11,15 +13,23 @@
 <script>
   export default {
     asyncData(context) {
-      return context.app.$storyapi.get('cdn/stories/blog/' + context.params.postId,  {
+    return context.app.$storyapi
+      .get('cdn/stories/blog/' + context.params.postId, {
         version: 'draft'
       })
       .then(res => {
         return {
+          blok: res.data.story.content,
           image: res.data.story.content.thumbnail,
           title: res.data.story.content.title,
-          content: res.data.story.content.content,
+          content: res.data.story.content.content
         };
+      });
+    },
+    mounted() {
+      this.$storyblok.init();
+      this.$storyblok.on("change", () => {
+        location.reload(true);
       });
     }
   };
