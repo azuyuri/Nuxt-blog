@@ -5,8 +5,12 @@
     <div
       :style="{backgroundImage: 'url(' + image + ')'}"
       class="post-thumbnail"/>
-    <h1>{{ title }}</h1>
-    <p>{{ content }}</p>
+    <section
+      class="post-content"
+    >
+      <h1>{{ title }}</h1>
+      <p>{{ content }}</p>
+    </section>
   </div>
 </template>
 
@@ -46,7 +50,7 @@
   width: 80%;
   max-width: 500px;
   margin: auto;
-}
+} */
 .post-content p {
   white-space: pre-line;
 }
