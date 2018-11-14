@@ -52,7 +52,7 @@
   width: 80%;
   max-width: 500px;
   margin: auto;
-} */
+}
 .post-content p {
   white-space: pre-line;
 }
