@@ -9,6 +9,7 @@
       class="post-content"
     >
       <h1>{{ title }}</h1>
+      <span>{{ date }}</span>
       <p>{{ content }}</p>
     </section>
   </div>
@@ -26,7 +27,8 @@
           blok: res.data.story.content,
           image: res.data.story.content.thumbnail,
           title: res.data.story.content.title,
-          content: res.data.story.content.content
+          content: res.data.story.content.content,
+          date: res.data.story.content.date
         };
       });
     },

@@ -12,7 +12,7 @@
 export default {
   asyncData(context) {
     return context.app.$storyapi.get('cdn/stories/about', {
-      version: context.isDev ? "draft" : "published" // ? CDNリンク
+      version: context.isDev ? "draft" : "published"
     }).then(res => {
       console.log(res.data)
       return {

@@ -32,7 +32,7 @@ export default {
             title: bp.content.title,
             previewText: bp.content.summary,
             thumbnailUrl: bp.content.thumbnail,
-            date: bp.content.date
+            date: bp.content.date,
           };
         })
       };
