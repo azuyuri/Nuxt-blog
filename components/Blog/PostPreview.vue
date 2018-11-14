@@ -8,6 +8,7 @@
         class="post-preview-thumbnail"/>
       <div class="post-preview-content">
         <h1>{{ title }}</h1>
+        <p>{{ date }}</p>
         <p>{{ excerpt }}</p>
       </div>
     </article>
@@ -31,6 +32,10 @@ export default {
   },
   id: {
     type: String,
+    required: true
+  },
+  date: {
+    type: Number,
     required: true
   }
   }

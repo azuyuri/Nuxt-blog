@@ -6,7 +6,8 @@
       :title="post.title"
       :excerpt="post.previewText"
       :thumbnail-image="post.thumbnailUrl"
-      :id="post.id" />
+      :id="post.id"
+      :date="post.date" />
   </section>
 </template>
 
@@ -30,7 +31,8 @@ export default {
             id: bp.slug,
             title: bp.content.title,
             previewText: bp.content.summary,
-            thumbnailUrl: bp.content.thumbnail
+            thumbnailUrl: bp.content.thumbnail,
+            date: bp.content.date
           };
         })
       };
