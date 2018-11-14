@@ -1,4 +1,5 @@
-const pkg = require('./package')
+const pkg = require("./package");
+const axios = require("axios");
 
 module.exports = {
   mode: 'universal',
@@ -11,7 +12,10 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "An awesome blog about tech stuff, build with Nuxt and Storyblok" }
+      {
+        hid: 'description',
+        name: 'description', content: "An awesome blog about tech stuff, built with Nuxt and Storyblok"
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -25,7 +29,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#3B8070' },
 
   /*
   ** Global CSS
@@ -47,11 +51,33 @@ module.exports = {
     [
       'storyblok-nuxt',
       {
-        accessToken: ProcessingInstruction.env.NODE_ENV == 'production' ? 'aNARUT0hl70hVhQ8ZFz5QAtt' : "SkqLswoptBZww3xHZ6nXewtt",
+        accessToken:
+          process.env.NODE_ENV == 'production'
+            ? 'aNARUT0hl70hVhQ8ZFz5QAtt'
+            : "SkqLswoptBZww3xHZ6nXewtt",
         cacheProvider: 'memory'
       }
     ]
   ],
+
+  generate: {
+    routes: function() {
+      return axios.get(
+        'https://api.storyblok.com/v1/cdn/stories?version=published&token=aNARUT0hl70hVhQ8ZFz5QAtt&starts_with=blog&cv=' +
+        Math.floor(Date.now() / 1e3)
+      )
+      .then(res => {
+        const blogPosts = res.data.stories.map(bp => bp.full_slug);
+        return [
+          '/',
+          '/blog',
+          '/about',
+          ...blogPosts
+        ]
+      });
+    }
+  },
+
   /*
   ** Axios module configuration
   */
@@ -74,8 +100,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
