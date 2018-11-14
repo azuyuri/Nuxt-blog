@@ -8,6 +8,9 @@
       :thumbnail-image="post.thumbnailUrl"
       :id="post.id"
       :date="post.date" />
+    <a
+      :href="link.url"
+      target="_blank">{{ link.url }}</a>
   </section>
 </template>
 
@@ -24,7 +27,7 @@ export default {
         starts_with: 'blog/'
     })
     .then(res => {
-      // console.log(res);
+      console.log(res);
       return {
         posts: res.data.stories.map(bp => {
           return {

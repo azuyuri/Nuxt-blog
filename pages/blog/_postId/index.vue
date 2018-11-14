@@ -10,6 +10,7 @@
     >
       <h1>{{ title }}</h1>
       <span>{{ date }}</span>
+      <!-- <a：href="url">{{ href }}</a：href="url"> -->
       <p>{{ content }}</p>
     </section>
   </div>
@@ -28,7 +29,8 @@
           image: res.data.story.content.thumbnail,
           title: res.data.story.content.title,
           content: res.data.story.content.content,
-          date: res.data.story.content.date
+          date: res.data.story.content.date,
+          // href: res.data.story.content.href,
         };
       });
     },
@@ -37,7 +39,7 @@
       this.$storyblok.on("change", () => {
         location.reload(true);
       });
-    }
+    },
   };
 </script>
 
