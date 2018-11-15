@@ -8,9 +8,6 @@
       :thumbnail-image="post.thumbnailUrl"
       :id="post.id"
       :date="post.date" />
-    <a
-      :href="link.url"
-      target="_blank">{{ link.url }}</a>
   </section>
 </template>
 

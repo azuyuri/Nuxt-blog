@@ -10,7 +10,6 @@
     >
       <h1>{{ title }}</h1>
       <span>{{ date }}</span>
-      <!-- <a：href="url">{{ href }}</a：href="url"> -->
       <p>{{ content }}</p>
     </section>
   </div>
@@ -30,7 +29,6 @@
           title: res.data.story.content.title,
           content: res.data.story.content.content,
           date: res.data.story.content.date,
-          // href: res.data.story.content.href,
         };
       });
     },
@@ -40,7 +38,7 @@
         location.reload(true);
       });
     },
-  };
+  }
 </script>
 
 <style>
