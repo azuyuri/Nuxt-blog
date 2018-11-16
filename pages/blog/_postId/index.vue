@@ -12,7 +12,9 @@
       <span>{{ date }}</span>
       <p>{{ content }}</p>
       <div class="links">
-        <a :href="link"/>
+        <a :href="link.url">
+          {{ link.url }}
+        </a>
     </div></section>
   </div>
 </template>
@@ -85,4 +87,8 @@ page-enter-active, .page-leave-active {
 .page-enter, .page-leave-to {
   opacity: 0;
 }
+
+/* link */
+
+
 </style>
