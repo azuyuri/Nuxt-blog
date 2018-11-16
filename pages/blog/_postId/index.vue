@@ -11,7 +11,9 @@
       <h1>{{ title }}</h1>
       <span>{{ date }}</span>
       <p>{{ content }}</p>
-    </section>
+      <div class="links">
+        <a :href="link"/>
+    </div></section>
   </div>
 </template>
 
@@ -29,6 +31,7 @@
           title: res.data.story.content.title,
           content: res.data.story.content.content,
           date: res.data.story.content.date,
+          link: res.data.story.content.link,
         };
       });
     },
