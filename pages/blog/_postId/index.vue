@@ -25,17 +25,6 @@
 
 <script>
   export default {
-    head () {
-    return {
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
-          href: 'https://use.fontawesome.com/releases/v5.5.0/css/solid.css'
-          }
-        ]
-      }
-    },
     asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories/blog/' + context.params.postId, {
@@ -58,6 +47,17 @@
         location.reload(true);
       });
     },
+    head () {
+    return {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
+          href: 'https://use.fontawesome.com/releases/v5.5.0/css/solid.css'
+          }
+        ]
+      }
+    },
   }
 </script>
 
@@ -76,7 +76,6 @@
 .post-content p {
   white-space: pre-line;
 }
-
 /* ページ遷移のアニメーション */
 .main-content {
   margin-top: 4.5rem;
@@ -95,27 +94,23 @@
 .slide-left-leave-active {
   transition: all .3s linear;
 }
-
 page-enter-active, .page-leave-active {
   transition: opacity .5s;
 }
 .page-enter, .page-leave-to {
   opacity: 0;
 }
-
 /* date */
 .date {
   color: #738A8D;
   font-size: 0.93em;
 }
-
 .date:before {
     font-family: "Font Awesome 5 Free";
     content: '\f073';
     color: #738A8D;
     margin-right: .4em;
 }
-
 /* link */
 .links {
     position: relative;
@@ -126,7 +121,6 @@ a:hover {
     color: #000;
     transition: 1.0s;
 }
-
 .links:before {
     font-family: "Font Awesome 5 Free";
     content: '\f0c1';
@@ -136,5 +130,4 @@ a:hover {
     color: #426173;
     margin-right: .4em;
 }
-
 </style>
