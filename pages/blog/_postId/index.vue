@@ -9,6 +9,8 @@
       class="post-content"
     >
       <h1>{{ title }}</h1>
+      <!-- A simple span tag, using Vue's HTML injection via v-html -->
+
       <span>{{ date }}</span>
       <p>{{ content }}</p>
     </section>
@@ -16,8 +18,10 @@
 </template>
 
 <script>
-  export default {
-    asyncData(context) {
+// font-awesome
+
+// font-awesome
+  asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories/blog/' + context.params.postId, {
         version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'

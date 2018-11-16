@@ -57,8 +57,34 @@ module.exports = {
             : "SkqLswoptBZww3xHZ6nXewtt",
         cacheProvider: 'memory'
       }
-    ]
+    ],
+    // font-awesome
+    'nuxt-fontawesome',
+    //OR like this
+    ['nuxt-fontawesome', {
+      component: 'fa',
+      imports: [
+        //import whole set
+        {
+          set: '@fortawesome/fontawesome-free-solid'
+        },
+        //import 2 icons from set
+        // please note this is PRO set in this example,
+        // you must have it in your node_modules to actually import
+        {
+          set: '@fortawesome/fontawesome-free-brands',
+          icons: ['faTwitter', 'faGithub']
+        }
+      ]
+    }]
   ],
+  //alternative place for config
+  fontawesome: {
+    imports: [
+      ...
+    ],
+  },
+
 
   generate: {
     routes: function() {
@@ -102,11 +128,6 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-    },
-    vendor: [
-      '@fortawesome/fontawesome',
-      '@fortawesome/fontawesome-free-solid',
-      '@fortawesome/fontawesome-free-brands'
-    ]
+    }
   }
 };
