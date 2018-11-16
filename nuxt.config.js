@@ -102,6 +102,11 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-    }
+    },
+    vendor: [
+      '@fortawesome/fontawesome',
+      '@fortawesome/fontawesome-free-solid',
+      '@fortawesome/fontawesome-free-brands'
+    ]
   }
 };
