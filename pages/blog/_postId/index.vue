@@ -9,18 +9,30 @@
       class="post-content"
     >
       <h1>{{ title }}</h1>
-      <span>{{ date }}</span>
+      <span
+        class="date">{{ date }}</span>
       <p>{{ content }}</p>
-      <div class="links">
-        <a :href="link.url">
-          {{ link.url }}
-        </a>
-    </div></section>
+      <a
+        :href="link.url"
+        class="links">
+        {{ link.url }}
+      </a>
+    </section>
   </div>
 </template>
 
 <script>
   export default {
+    head () {
+    return {
+      link: [
+        {
+          rel: 'stylesheet',
+          href:'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
+          }
+        ]
+      }
+    },
     asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories/blog/' + context.params.postId, {
@@ -88,7 +100,30 @@ page-enter-active, .page-leave-active {
   opacity: 0;
 }
 
-/* link */
+/* date */
+.date {
+  color: #738A8D;
+  font-size: 0.93em;
+}
 
+/* link */
+.links {
+    position: relative;
+    text-decoration: none;
+    color: #738A8D;
+}
+a:hover {
+    color: #000;
+    transition: 1.0s;
+}
+
+.links:before {
+    content: "\f0c1";
+    color: #022D30;
+    font-family: Fontawesome;
+    margin-right: .4em;
+    position: absolute;
+    left: -1.2em;
+}
 
 </style>
