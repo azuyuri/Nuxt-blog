@@ -131,9 +131,9 @@ a:hover {
     font-family: "Font Awesome 5 Free";
     content: '\f0c1';
     position: absolute;
-    left: -1.2em;
-    top: 2px;
-    color: #000;
+    left: -1.4em;
+    top: 3px;
+    color: #426173;
     margin-right: .4em;
 }
 
