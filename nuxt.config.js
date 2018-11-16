@@ -128,6 +128,13 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
+    },
+    //Tree shaking, you can omit this, but then webpack will include whole package
+    build: {
+      extend(config) {
+        config.resolve.alias['@fortawesome/fontawesome-free-brands$'] = '@fortawesome/fontawesome-free-brands/shakable.es.js'
+        config.resolve.alias['@fortawesome/fontawesome-free-solid$'] = '@fortawesome/fontawesome-free-solid/shakable.es.js'
+      }
     }
   }
 };

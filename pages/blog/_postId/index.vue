@@ -9,8 +9,8 @@
       class="post-content"
     >
       <h1>{{ title }}</h1>
-      <!-- A simple span tag, using Vue's HTML injection via v-html -->
-
+      <!-- nuxt-fontawesome -->
+      <fa :icon="['fas', 'link']"/>
       <span>{{ date }}</span>
       <p>{{ content }}</p>
     </section>
