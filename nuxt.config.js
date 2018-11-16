@@ -57,8 +57,34 @@ module.exports = {
             : "SkqLswoptBZww3xHZ6nXewtt",
         cacheProvider: 'memory'
       }
-    ]
+    ],
+    // font-awesome
+    'nuxt-fontawesome',
+    //OR like this
+    ['nuxt-fontawesome', {
+      component: 'fa',
+      imports: [
+        //import whole set
+        {
+          set: '@fortawesome/fontawesome-free-solid'
+        },
+        //import 2 icons from set
+        // please note this is PRO set in this example,
+        // you must have it in your node_modules to actually import
+        {
+          set: '@fortawesome/fontawesome-free-brands',
+          icons: ['faTwitter', 'faGithub']
+        }
+      ]
+    }]
   ],
+  //alternative place for config
+  fontawesome: {
+    imports: [
+      ...
+    ],
+  },
+
 
   generate: {
     routes: function() {
@@ -101,6 +127,13 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         });
+      }
+    },
+    //Tree shaking, you can omit this, but then webpack will include whole package
+    build: {
+      extend(config) {
+        config.resolve.alias['@fortawesome/fontawesome-free-brands$'] = '@fortawesome/fontawesome-free-brands/shakable.es.js'
+        config.resolve.alias['@fortawesome/fontawesome-free-solid$'] = '@fortawesome/fontawesome-free-solid/shakable.es.js'
       }
     }
   }
