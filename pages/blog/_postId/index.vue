@@ -9,16 +9,10 @@
       class="post-content"
     >
       <h1>{{ title }}</h1>
-<<<<<<< HEAD
       <span
         class="date">
         {{ date }}
       </span>
-=======
-      <!-- nuxt-fontawesome -->
-      <fa :icon="['fas', 'link']"/>
-      <span>{{ date }}</span>
->>>>>>> origin/font-awesome
       <p>{{ content }}</p>
       <a
         :href="link.url"
@@ -30,7 +24,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
   export default {
     head () {
     return {
@@ -44,12 +37,6 @@
       }
     },
     asyncData(context) {
-=======
-// font-awesome
-
-// font-awesome
-  asyncData(context) {
->>>>>>> origin/font-awesome
     return context.app.$storyapi
       .get('cdn/stories/blog/' + context.params.postId, {
         version: process.env.NODE_ENV == 'production' ? 'published' : 'draft'
