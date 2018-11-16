@@ -10,7 +10,9 @@
     >
       <h1>{{ title }}</h1>
       <span
-        class="date">{{ date }}</span>
+        class="date">
+        {{ date }}
+      </span>
       <p>{{ content }}</p>
       <a
         :href="link.url"
@@ -28,7 +30,8 @@
       link: [
         {
           rel: 'stylesheet',
-          href:'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
+          href: 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
+          href: 'https://use.fontawesome.com/releases/v5.5.0/css/solid.css'
           }
         ]
       }
@@ -106,6 +109,13 @@ page-enter-active, .page-leave-active {
   font-size: 0.93em;
 }
 
+.date:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f073';
+    color: #738A8D;
+    margin-right: .4em;
+}
+
 /* link */
 .links {
     position: relative;
@@ -118,12 +128,13 @@ a:hover {
 }
 
 .links:before {
-    content: "\f0c1";
-    color: #022D30;
-    font-family: Fontawesome;
-    margin-right: .4em;
+    font-family: "Font Awesome 5 Free";
+    content: '\f0c1';
     position: absolute;
     left: -1.2em;
+    top: 2px;
+    color: #000;
+    margin-right: .4em;
 }
 
 </style>
