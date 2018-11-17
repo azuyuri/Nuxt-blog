@@ -13,7 +13,10 @@
         class="date">
         {{ date }}
       </span>
-      <p>{{ content }}</p>
+      <!-- <p>{{ content }}</p> -->
+      <div 
+        filters="content | marked" 
+        v-html="content" />
       <a
         :href="link.url"
         class="links">
@@ -24,7 +27,10 @@
 </template>
 
 <script>
+  import marked from 'marked';
+
   export default {
+
     asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories/blog/' + context.params.postId, {
@@ -41,6 +47,11 @@
         };
       });
     },
+    computed: {
+    text() {
+      return marked(this.blok.text);
+    },
+  },
     mounted() {
       this.$storyblok.init();
       this.$storyblok.on("change", () => {
@@ -57,7 +68,7 @@
           }
         ]
       }
-    },
+    }
   }
 </script>
 
@@ -121,7 +132,7 @@ a:hover {
     color: #000;
     transition: 1.0s;
 }
-.links:before {
+/* .links:before {
     font-family: "Font Awesome 5 Free";
     content: '\f0c1';
     position: absolute;
@@ -129,5 +140,5 @@ a:hover {
     top: 3px;
     color: #426173;
     margin-right: .4em;
-}
+} */
 </style>
